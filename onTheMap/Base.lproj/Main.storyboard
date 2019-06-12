@@ -13,7 +13,7 @@
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="LoginVC" customClass="ViewController" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" userLabel="LoginVC" customClass="LoginVC" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,9 +40,12 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.087007291615009308" green="0.71922796964645386" blue="0.89889782667160034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AkI-HX-aJ8"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgU-n5-Zmp" userLabel="username label">
-                                <rect key="frame" x="37.5" y="463" width="64" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgU-n5-Zmp" userLabel="username label">
+                                <rect key="frame" x="37.666666666666657" y="463" width="64" height="20"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -57,10 +60,13 @@
                         <color key="backgroundColor" red="0.087007291615009308" green="0.71922796964645386" blue="0.89889782667160034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ldB-Dh-aB0" firstAttribute="width" secondItem="H87-M3-uUl" secondAttribute="width" id="1O4-6g-AEH"/>
+                            <constraint firstItem="hgU-n5-Zmp" firstAttribute="leading" secondItem="VBM-SQ-dVR" secondAttribute="leading" id="7qT-xF-dVf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W1q-ef-zfa" secondAttribute="trailing" symbolic="YES" id="9YJ-mg-cyZ"/>
                             <constraint firstItem="H87-M3-uUl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Dsc-cq-6Cj"/>
                             <constraint firstItem="VBM-SQ-dVR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FAb-Xr-LTO"/>
                             <constraint firstItem="VBM-SQ-dVR" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="Ffl-Ge-JbS"/>
                             <constraint firstItem="H87-M3-uUl" firstAttribute="top" secondItem="W1q-ef-zfa" secondAttribute="bottom" constant="5" id="T3p-p3-Gy9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hgU-n5-Zmp" secondAttribute="trailing" symbolic="YES" id="TcM-W4-P0b"/>
                             <constraint firstItem="ldB-Dh-aB0" firstAttribute="top" secondItem="H87-M3-uUl" secondAttribute="bottom" constant="50" id="VXe-FK-1E1"/>
                             <constraint firstItem="ldB-Dh-aB0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZSt-ba-L8r"/>
                             <constraint firstItem="H87-M3-uUl" firstAttribute="width" secondItem="VBM-SQ-dVR" secondAttribute="width" id="aUn-XZ-MCQ"/>
@@ -74,6 +80,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="ldB-Dh-aB0" id="ZAk-WG-Elh"/>
+                        <outlet property="passwordTextField" destination="H87-M3-uUl" id="ead-cS-fkE"/>
+                        <outlet property="usernameTextfield" destination="VBM-SQ-dVR" id="Gm0-Ma-h1h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
