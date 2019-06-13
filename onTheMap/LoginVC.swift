@@ -30,8 +30,9 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         if let username = usernameTextfield.text, let password = passwordTextField.text{
-            networkingManager.postASession(username: username, password: password)
+            NetworkingManager.postASession(username: username, password: password)
         }
+        performSegue(withIdentifier: "showMap", sender: self)
         
     }
     

@@ -9,7 +9,7 @@
 import Foundation
 
 
-class networkingManager{
+class NetworkingManager{
     
     struct auth{
         var sessionId: String
@@ -29,7 +29,7 @@ class networkingManager{
     }
     
     
-    class func postASession(username: String, password: String){
+    class func postASession(username: String, password: String, completionHandler: @escaping (SessionResponse?, Error?) -> Void){
         var request = URLRequest(url: URL(string: Endpoints.session.StringValue)!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
