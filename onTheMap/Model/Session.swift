@@ -9,6 +9,6 @@
 import Foundation
 
 struct Session: Codable {
-    let id: String
-    let expiration: String
+    var id: String
+    var expiration: String
 }

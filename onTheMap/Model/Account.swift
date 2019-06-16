@@ -9,6 +9,6 @@
 import Foundation
 
 struct Account: Codable {
-    let registered: Bool
-    let key: String
+    var registered: Bool
+    var key: String
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD0D3BC822B6CE5800FCB978 /* SessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0D3BC722B6CE5800FCB978 /* SessionRequest.swift */; };
 		CD22976222B09DFB00DD0B08 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD22976122B09DFB00DD0B08 /* NetworkingManager.swift */; };
 		CD715FF422B2121A00F5B1AD /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD715FF322B2121A00F5B1AD /* SessionResponse.swift */; };
 		CD715FF622B212E000F5B1AD /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD715FF522B212E000F5B1AD /* Session.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD0D3BC722B6CE5800FCB978 /* SessionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRequest.swift; sourceTree = "<group>"; };
 		CD22976122B09DFB00DD0B08 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		CD715FF322B2121A00F5B1AD /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
 		CD715FF522B212E000F5B1AD /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -43,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD0D3BC622B6CE2B00FCB978 /* Networking Ops */ = {
+			isa = PBXGroup;
+			children = (
+				CD715FF322B2121A00F5B1AD /* SessionResponse.swift */,
+				CD0D3BC722B6CE5800FCB978 /* SessionRequest.swift */,
+			);
+			path = "Networking Ops";
+			sourceTree = "<group>";
+		};
 		CD715FF722B2133100F5B1AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,11 +82,11 @@
 		CDB5805522AF7E72002AA887 /* onTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				CD0D3BC622B6CE2B00FCB978 /* Networking Ops */,
 				CD715FF722B2133100F5B1AD /* Model */,
 				CDB5805622AF7E72002AA887 /* AppDelegate.swift */,
 				CDB5805822AF7E72002AA887 /* LoginVC.swift */,
 				CD22976122B09DFB00DD0B08 /* NetworkingManager.swift */,
-				CD715FF322B2121A00F5B1AD /* SessionResponse.swift */,
 				CDB5805A22AF7E72002AA887 /* Main.storyboard */,
 				CDB5805D22AF7E73002AA887 /* Assets.xcassets */,
 				CDB5805F22AF7E73002AA887 /* LaunchScreen.storyboard */,
@@ -156,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD715FF622B212E000F5B1AD /* Session.swift in Sources */,
+				CD0D3BC822B6CE5800FCB978 /* SessionRequest.swift in Sources */,
 				CDB5805922AF7E72002AA887 /* LoginVC.swift in Sources */,
 				CDB5805722AF7E72002AA887 /* AppDelegate.swift in Sources */,
 				CD22976222B09DFB00DD0B08 /* NetworkingManager.swift in Sources */,

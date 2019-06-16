@@ -27,21 +27,34 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         
     }
     
-    
-    @IBAction func loginButtonPressed(_ sender: Any) {
-        if let username = usernameTextfield.text, let password = passwordTextField.text{
-            NetworkingManager.postASession(username: username, password: password)
-        }
-        performSegue(withIdentifier: "showMap", sender: self)
-        
-    }
-    
-    
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
+    
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        if let username = usernameTextfield.text, let password = passwordTextField.text{
+            NetworkingManager.postASession(username: username, password: password, completion: handleLoginResponse(success:error:))
+        }
+        
+        
+    }
+    
+    
+    func handleLoginResponse(success: Bool, error: Error?){
+      
+        if success{
+            performSegue(withIdentifier: "showMap", sender: self)
+        }
+        else{
+            print("failed to login")
+        }
+    }
+    
+    
+    
+
     
 
 }
