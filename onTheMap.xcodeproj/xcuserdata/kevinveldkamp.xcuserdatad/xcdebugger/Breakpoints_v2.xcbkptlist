@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "onTheMap/NetworkingManager.swift"
-            timestampString = "582411752.446579"
+            timestampString = "582534263.111524"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
             endingLineNumber = "87"
-            landmarkName = "postASession(username:password:completion:)"
+            landmarkName = "taskForPOSTRequest(url:responseType:body:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "onTheMap/NetworkingManager.swift"
-            timestampString = "582411752.447"
+            timestampString = "582534263.112566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "90"
             endingLineNumber = "90"
-            landmarkName = "postASession(username:password:completion:)"
+            landmarkName = "taskForPOSTRequest(url:responseType:body:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "onTheMap/NetworkingManager.swift"
-            timestampString = "582411752.447309"
+            timestampString = "582534263.112874"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
             endingLineNumber = "53"
-            landmarkName = "taskForPOSTRequest(url:responseType:body:completion:)"
+            landmarkName = "taskForGETRequest(url:response:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

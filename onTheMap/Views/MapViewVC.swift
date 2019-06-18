@@ -12,6 +12,10 @@ import MapKit
 class MapViewVC: UIViewController {
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        NetworkingManager.getStudentsLocations(completion: handleGetLocationsResponse(studentLocations:error:))
+    }
+    
     @IBOutlet weak var mapView: MKMapView!
     
     
@@ -23,6 +27,18 @@ class MapViewVC: UIViewController {
     }
     
     @IBAction func addPin(_ sender: Any) {
+    }
+    
+    
+    
+    func handleGetLocationsResponse(studentLocations: [StudentLocation], error: Error?){
+        if studentLocations.count > 0{
+            print(studentLocations)
+        }
+        else{
+            print("failed to get locations")
+        }
+    
     }
     
 }
