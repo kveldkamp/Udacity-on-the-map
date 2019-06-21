@@ -64,6 +64,7 @@ class ListViewVC: UIViewController, UITableViewDelegate,  UITableViewDataSource 
                 StudentLocations.data[indexPath.row].lastName
             cell.mediaLabel.text =  StudentLocations.data[indexPath.row].mediaURL
         return cell
+        //TODO: Sort cells by most recent update to oldest
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -71,9 +71,17 @@
 				CDB5805822AF7E72002AA887 /* LoginVC.swift */,
 				CD0D3BCB22B6EE1E00FCB978 /* ListViewVC.swift */,
 				CD0D3BCD22B6EE4600FCB978 /* MapViewVC.swift */,
-				CD1FCD8322BCACDD005DB077 /* NavBarFunctions.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CD1FCD8722BCCE8A005DB077 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CD22976122B09DFB00DD0B08 /* NetworkingManager.swift */,
+				CD1FCD8322BCACDD005DB077 /* NavBarFunctions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		CD715FF722B2133100F5B1AD /* Model */ = {
@@ -107,9 +115,9 @@
 			children = (
 				CD0D3BCF22B6EE5900FCB978 /* Views */,
 				CD0D3BC622B6CE2B00FCB978 /* Networking Ops */,
+				CD1FCD8722BCCE8A005DB077 /* Utilities */,
 				CD715FF722B2133100F5B1AD /* Model */,
 				CDB5805622AF7E72002AA887 /* AppDelegate.swift */,
-				CD22976122B09DFB00DD0B08 /* NetworkingManager.swift */,
 				CDB5805A22AF7E72002AA887 /* Main.storyboard */,
 				CDB5805F22AF7E73002AA887 /* LaunchScreen.storyboard */,
 				CDB5805D22AF7E73002AA887 /* Assets.xcassets */,
