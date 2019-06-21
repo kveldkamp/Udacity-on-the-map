@@ -9,38 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "onTheMap/NetworkingManager.swift"
-            timestampString = "582534263.111524"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "taskForPOSTRequest(url:responseType:body:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "onTheMap/NetworkingManager.swift"
-            timestampString = "582534263.112566"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "taskForPOSTRequest(url:responseType:body:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "onTheMap/LoginVC.swift"
             timestampString = "582411752.447256"
             startingColumnNumber = "9223372036854775807"
@@ -57,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "onTheMap/NetworkingManager.swift"
-            timestampString = "582534263.112874"
+            filePath = "onTheMap/LoginVC.swift"
+            timestampString = "582411752.447542"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "taskForGETRequest(url:response:completion:)"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "handleLoginResponse(success:error:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "onTheMap/LoginVC.swift"
-            timestampString = "582411752.447542"
+            filePath = "onTheMap/NetworkingManager.swift"
+            timestampString = "582790063.174145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "handleLoginResponse(success:error:)"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "getStudentsLocations(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

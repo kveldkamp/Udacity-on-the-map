@@ -123,13 +123,14 @@ class NetworkingManager{
     class func getStudentsLocations(completion: @escaping ([StudentLocation], Error?) -> Void){
        taskForGETRequest(url: Endpoints.studentLocation.url, response: StudentLocationResponse.self){response, error in
         if let response = response {
-            completion(response.results,nil)
+                completion(response.results,nil)
         }
         else {
             completion([], error)
         }
     }
     }
+    
     
     
     

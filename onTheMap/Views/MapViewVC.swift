@@ -33,12 +33,37 @@ class MapViewVC: UIViewController {
     
     func handleGetLocationsResponse(studentLocations: [StudentLocation], error: Error?){
         if studentLocations.count > 0{
-            print(studentLocations)
+            configurePinsOnMap(studentLocations: studentLocations)
         }
         else{
             print("failed to get locations")
         }
     
+    }
+    
+    
+    func configurePinsOnMap(studentLocations: [StudentLocation]){
+        var annotations = [MKPointAnnotation]()
+        
+        for student in studentLocations {
+
+            let lat = student.latitude
+            let long = student.longitude
+            let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            
+            let first = student.firstName
+            let last =  student.lastName
+            let mediaURL = student.mediaURL
+
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            annotation.title = "\(first) \(last)"
+            annotation.subtitle = mediaURL
+            
+            annotations.append(annotation)
+        }
+        
+        self.mapView.addAnnotations(annotations)
     }
     
 }

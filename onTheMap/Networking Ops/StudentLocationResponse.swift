@@ -24,4 +24,19 @@ struct StudentLocation: Codable {
     let objectId: String
     let createdAt: String
     let updatedAt: String
+    
+    
+    
+    init(dictionary: [String : AnyObject]) {
+        firstName = dictionary["firstName"] as! String
+        lastName = dictionary["lastName"] as! String
+        longitude = dictionary["longitude"] as! Double
+        latitude = dictionary["latitude"] as! Double
+        mediaURL = dictionary["mediaURL"] as! String
+        mapString = dictionary["mapString"] as! String
+        objectId = dictionary["objectId"] as! String
+        uniqueKey = dictionary["uniqueKey"] as! String
+        createdAt = dictionary["createdAt"] as! String
+        updatedAt = dictionary["updatedAt"] as! String
+    }
 }
