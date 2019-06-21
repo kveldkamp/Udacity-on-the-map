@@ -49,6 +49,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         }
         else{
             print("failed to login")
+            //TODO: error dialog for failed to login
         }
     }
     

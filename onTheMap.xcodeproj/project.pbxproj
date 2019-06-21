@@ -12,6 +12,7 @@
 		CD0D3BCE22B6EE4600FCB978 /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0D3BCD22B6EE4600FCB978 /* MapViewVC.swift */; };
 		CD0D3BD122B6F7AF00FCB978 /* StudentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0D3BD022B6F7AF00FCB978 /* StudentLocationResponse.swift */; };
 		CD1FCD8422BCACDD005DB077 /* NavBarFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1FCD8322BCACDD005DB077 /* NavBarFunctions.swift */; };
+		CD1FCD8622BCBC2D005DB077 /* StudentLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1FCD8522BCBC2D005DB077 /* StudentLocations.swift */; };
 		CD22976222B09DFB00DD0B08 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD22976122B09DFB00DD0B08 /* NetworkingManager.swift */; };
 		CD715FF422B2121A00F5B1AD /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD715FF322B2121A00F5B1AD /* SessionResponse.swift */; };
 		CD715FF622B212E000F5B1AD /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD715FF522B212E000F5B1AD /* Session.swift */; };
@@ -29,6 +30,7 @@
 		CD0D3BCD22B6EE4600FCB978 /* MapViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
 		CD0D3BD022B6F7AF00FCB978 /* StudentLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationResponse.swift; sourceTree = "<group>"; };
 		CD1FCD8322BCACDD005DB077 /* NavBarFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarFunctions.swift; sourceTree = "<group>"; };
+		CD1FCD8522BCBC2D005DB077 /* StudentLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocations.swift; sourceTree = "<group>"; };
 		CD22976122B09DFB00DD0B08 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		CD715FF322B2121A00F5B1AD /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
 		CD715FF522B212E000F5B1AD /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				CD715FF522B212E000F5B1AD /* Session.swift */,
 				CD715FF822B2134600F5B1AD /* Account.swift */,
+				CD1FCD8522BCBC2D005DB077 /* StudentLocations.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				CDB5805722AF7E72002AA887 /* AppDelegate.swift in Sources */,
 				CD22976222B09DFB00DD0B08 /* NetworkingManager.swift in Sources */,
 				CD715FF422B2121A00F5B1AD /* SessionResponse.swift in Sources */,
+				CD1FCD8622BCBC2D005DB077 /* StudentLocations.swift in Sources */,
 				CD715FF922B2134600F5B1AD /* Account.swift in Sources */,
 				CD1FCD8422BCACDD005DB077 /* NavBarFunctions.swift in Sources */,
 				CD0D3BD122B6F7AF00FCB978 /* StudentLocationResponse.swift in Sources */,

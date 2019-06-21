@@ -40,9 +40,11 @@ class MapViewVC: UIViewController, MKMapViewDelegate {
     func handleGetLocationsResponse(studentLocations: [StudentLocation], error: Error?){
         if studentLocations.count > 0{
             configurePinsOnMap(studentLocations: studentLocations)
+            StudentLocations.data = studentLocations
         }
         else{
             print("failed to get locations")
+            //TODO: error dialog for failing to get locations
         }
     
     }

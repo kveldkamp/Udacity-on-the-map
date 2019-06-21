@@ -126,6 +126,58 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qmk-IO-hV6">
                                 <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="locationTableCellId" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentLocationTableViewCell" id="8uR-Pm-Qzj" customClass="StudentLocationTableViewCell" customModule="onTheMap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8uR-Pm-Qzj" id="QRd-Ju-c0K">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="imageView" image="icon_pin" translatesAutoresizingMaskIntoConstraints="NO" id="EGP-m1-7so" userLabel="imageView">
+                                                    <rect key="frame" x="0.0" y="10" width="37.666666666666664" height="24"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="locationImage"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="nameLabel" text="First Name Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcv-Za-vi6" userLabel="name label">
+                                                    <rect key="frame" x="47.666666666666657" y="2" width="312.33333333333337" height="18"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="nameLabel"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="mediaLabel" text="www.myspace.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1r-u9-zFM" userLabel="mediaURL label">
+                                                    <rect key="frame" x="47.666666666666657" y="23.666666666666671" width="312.33333333333337" height="18"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="mediaLabel"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EGP-m1-7so" firstAttribute="width" secondItem="QRd-Ju-c0K" secondAttribute="width" multiplier="0.1" id="2Cu-q5-Nbi"/>
+                                                <constraint firstItem="Jcv-Za-vi6" firstAttribute="top" secondItem="QRd-Ju-c0K" secondAttribute="top" constant="2" id="L4N-pj-vrf"/>
+                                                <constraint firstItem="f1r-u9-zFM" firstAttribute="leading" secondItem="Jcv-Za-vi6" secondAttribute="leading" id="PbT-1g-Sac"/>
+                                                <constraint firstItem="f1r-u9-zFM" firstAttribute="trailing" secondItem="Jcv-Za-vi6" secondAttribute="trailing" id="QgA-Hl-KiJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="Jcv-Za-vi6" secondAttribute="trailing" constant="15" id="YVw-br-EmX"/>
+                                                <constraint firstItem="Jcv-Za-vi6" firstAttribute="leading" secondItem="EGP-m1-7so" secondAttribute="trailing" constant="10" id="kEb-dd-KSZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="f1r-u9-zFM" secondAttribute="bottom" constant="2" id="o5p-zD-8kw"/>
+                                                <constraint firstItem="EGP-m1-7so" firstAttribute="leading" secondItem="QRd-Ju-c0K" secondAttribute="leading" id="qZg-Sd-9cj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="EGP-m1-7so" firstAttribute="centerY" secondItem="8uR-Pm-Qzj" secondAttribute="centerY" id="dO4-Zz-2VS"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="locationImage" destination="EGP-m1-7so" id="bB8-OX-1hN"/>
+                                            <outlet property="mediaLabel" destination="f1r-u9-zFM" id="t9I-F4-AsS"/>
+                                            <outlet property="nameLabel" destination="Jcv-Za-vi6" id="xVe-lz-u7c"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bn8-04-BcW" id="xYz-1Z-o9y"/>
+                                    <outlet property="delegate" destination="bn8-04-BcW" id="UYZ-5f-0hy"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -232,6 +284,7 @@
         <image name="icon_addpin" width="24" height="24"/>
         <image name="icon_listview-selected" width="75" height="50"/>
         <image name="icon_mapview-selected" width="75" height="50"/>
+        <image name="icon_pin" width="24" height="24"/>
         <image name="icon_refresh" width="24" height="24"/>
         <image name="icon_world" width="52" height="67"/>
     </resources>
