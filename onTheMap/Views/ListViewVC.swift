@@ -11,11 +11,14 @@ import UIKit
 class ListViewVC: UIViewController {
     
     
+    let navBarFunctions = NavBarFunctions()
+    
     @IBOutlet weak var tableView: UITableView!
     
     
     
     @IBAction func logout(_ sender: Any) {
+        navBarFunctions.logout()
     }
     
     
@@ -24,6 +27,7 @@ class ListViewVC: UIViewController {
     
     
     @IBAction func addPin(_ sender: Any) {
+        navBarFunctions.addPin()
     }
     
 }

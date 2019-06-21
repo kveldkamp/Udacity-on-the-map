@@ -9,11 +9,14 @@
 import UIKit
 import MapKit
 
-class MapViewVC: UIViewController {
+class MapViewVC: UIViewController, MKMapViewDelegate {
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        NetworkingManager.getStudentsLocations(completion: handleGetLocationsResponse(studentLocations:error:))
+    let navBarFunctions = NavBarFunctions()
+    
+    
+    override func viewDidLoad() {
+         NetworkingManager.getStudentsLocations(completion: handleGetLocationsResponse(studentLocations:error:))
     }
     
     @IBOutlet weak var mapView: MKMapView!
@@ -21,12 +24,15 @@ class MapViewVC: UIViewController {
     
     
     @IBAction func logout(_ sender: Any) {
+        navBarFunctions.logout()
     }
     
     @IBAction func refresh(_ sender: Any) {
+        NetworkingManager.getStudentsLocations(completion: handleGetLocationsResponse(studentLocations:error:))
     }
     
     @IBAction func addPin(_ sender: Any) {
+        navBarFunctions.addPin()
     }
     
     
@@ -64,6 +70,38 @@ class MapViewVC: UIViewController {
         }
         
         self.mapView.addAnnotations(annotations)
+
+    }
+    
+    
+    //MARK MKMapViewDelegate functions
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let reuseId = "pin"
+        
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.pinTintColor = .blue
+            pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        else {
+            pinView!.annotation = annotation
+        }
+        
+        return pinView
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            let app = UIApplication.shared
+            if let toOpen = view.annotation?.subtitle! {
+                app.openURL(URL(string: toOpen)!)
+            }
+        }
     }
     
 }
