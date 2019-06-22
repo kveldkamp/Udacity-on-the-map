@@ -9,9 +9,35 @@
 import UIKit
 import MapKit
 
-class SubmitStudentLocationVC: UIViewController {
+class SubmitStudentLocationVC: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    
+    var annotation = MKPointAnnotation()
+    
+    override func viewDidLoad() {
+        configurePinOnMap()
+    }
+    
+    
+    
+    func configurePinOnMap(){
+        let lat = StudentInfo.latitude
+        let long = StudentInfo.longitude
+        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+
+        
+        let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+        let region = MKCoordinateRegion(center: annotation.coordinate, span: span)
+        mapView.setRegion(region, animated: true)
+        self.mapView.addAnnotation(annotation)
+    }
+    
+    
+    
     
     @IBAction func PostStudentInfoButton(_ sender: Any) {
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
@@ -21,6 +47,31 @@ class SubmitStudentLocationVC: UIViewController {
     @IBAction func dismissView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
+    
+    
+    
+    //MKMapViewDelegate methods
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let reuseId = "pin"
+        
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        //TODO: make pin match
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.pinTintColor = .blue
+            pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        else {
+            pinView!.annotation = annotation
+        }
+        
+        return pinView
+    }
+    
     
     
 }
