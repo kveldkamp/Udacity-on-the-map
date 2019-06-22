@@ -35,6 +35,7 @@ class NetworkingManager{
                 
             case .userData:
                 return Endpoints.udacityBase + "/users/"
+                
             }
             
         }
@@ -133,6 +134,7 @@ class NetworkingManager{
                 self.SessionInfo.sessionId = response.session.id
                 self.SessionInfo.sessionExpiration = response.session.expiration
                 self.SessionInfo.accountKey = response.account.key
+                UserInfo.uniqueKey = response.account.key
                 self.SessionInfo.accountIsRegistered = response.account.registered
                 completion(true,nil)
             }
@@ -169,6 +171,44 @@ class NetworkingManager{
                 }
             }
         }
+    }
+    
+    class func postStudentLocation(requestBody: PostLocationRequest, completion: @escaping (Bool, Error?) -> Void){
+        let body = requestBody
+        taskForPOSTRequest(url: Endpoints.studentLocation.url, responseType: PostLocationResponse.self, body: body, stupid5CharacterDeleter: false){ response, error in
+            if response != nil {
+                completion(true,nil)
+            }
+            else {
+                completion(false, error)
+            }
+        }
+    }
+    
+    
+    class func logout(){
+        var request = URLRequest(url: Endpoints.session.url)
+        request.httpMethod = "DELETE"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        
+        
+        
+        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            SessionInfo.sessionId = ""
+            SessionInfo.sessionExpiration = ""
+            SessionInfo.accountKey = ""
+            SessionInfo.accountIsRegistered = false
+        }
+        task.resume()
+        
     }
     
     

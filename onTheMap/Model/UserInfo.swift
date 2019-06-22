@@ -16,9 +16,5 @@ class UserInfo{
     static var mapString = ""
     static var mediaURL = ""
     static var uniqueKey = ""
-    static var objectId = ""
-    static var createdAt = ""
-    static var updatedAt = ""
-    
-    
+
 }

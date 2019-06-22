@@ -26,6 +26,7 @@ class MapViewVC: UIViewController, MKMapViewDelegate {
     
     @IBAction func logout(_ sender: Any) {
         navBarFunctions.logout()
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func refresh(_ sender: Any) {
@@ -45,8 +46,7 @@ class MapViewVC: UIViewController, MKMapViewDelegate {
             StudentLocations.data = studentLocations
         }
         else{
-            print("failed to get locations")
-            //TODO: error dialog for failing to get locations
+            displayAlert(title: "Failed to Get Locations", message: "Please try reloading")
         }
     
     }

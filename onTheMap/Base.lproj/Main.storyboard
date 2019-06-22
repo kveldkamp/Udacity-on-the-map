@@ -25,13 +25,13 @@
                                 <rect key="frame" x="37.666666666666657" y="488" width="300" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H87-M3-uUl" userLabel="password text field">
                                 <rect key="frame" x="37.666666666666657" y="553" width="300" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldB-Dh-aB0">
                                 <rect key="frame" x="37.666666666666657" y="633" width="300" height="45"/>
@@ -56,12 +56,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pnW-hh-lnT">
+                                <rect key="frame" x="169" y="721" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.087007291615009308" green="0.71922796964645386" blue="0.89889782667160034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ldB-Dh-aB0" firstAttribute="width" secondItem="H87-M3-uUl" secondAttribute="width" id="1O4-6g-AEH"/>
                             <constraint firstItem="hgU-n5-Zmp" firstAttribute="leading" secondItem="VBM-SQ-dVR" secondAttribute="leading" id="7qT-xF-dVf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W1q-ef-zfa" secondAttribute="trailing" symbolic="YES" id="9YJ-mg-cyZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pnW-hh-lnT" secondAttribute="bottom" constant="20" id="ApJ-85-iUA"/>
                             <constraint firstItem="H87-M3-uUl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Dsc-cq-6Cj"/>
                             <constraint firstItem="VBM-SQ-dVR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FAb-Xr-LTO"/>
                             <constraint firstItem="VBM-SQ-dVR" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="Ffl-Ge-JbS"/>
@@ -77,10 +81,12 @@
                             <constraint firstItem="ldB-Dh-aB0" firstAttribute="height" secondItem="H87-M3-uUl" secondAttribute="height" multiplier="1.5" id="tFH-b7-Xn0"/>
                             <constraint firstItem="W1q-ef-zfa" firstAttribute="top" secondItem="VBM-SQ-dVR" secondAttribute="bottom" constant="10" id="tYD-gf-Gzt"/>
                             <constraint firstItem="8mc-wh-0gz" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wMI-8J-G1H"/>
+                            <constraint firstItem="pnW-hh-lnT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="znD-xe-F1d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="pnW-hh-lnT" id="hcf-R1-ezI"/>
                         <outlet property="loginButton" destination="ldB-Dh-aB0" id="ZAk-WG-Elh"/>
                         <outlet property="passwordTextField" destination="H87-M3-uUl" id="ead-cS-fkE"/>
                         <outlet property="usernameTextfield" destination="VBM-SQ-dVR" id="Gm0-Ma-h1h"/>
@@ -214,13 +220,13 @@
                                 <rect key="frame" x="37.666666666666657" y="219" width="300" height="65"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Media URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9uW-MM-wJB" userLabel="MediaURL Text Box">
                                 <rect key="frame" x="37.666666666666657" y="334" width="300" height="65"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4J-hb-e7E">
                                 <rect key="frame" x="37.666666666666657" y="524" width="300" height="97.333333333333371"/>

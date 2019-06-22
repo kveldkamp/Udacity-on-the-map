@@ -26,15 +26,20 @@ class ListViewVC: UIViewController, UITableViewDelegate,  UITableViewDataSource 
     
     override func viewDidLoad() {
         NetworkingManager.getStudentsLocations(completion: handleGetLocationsResponse(studentLocations:error:))
+        StudentLocations.data.sort(){$0.updatedAt > $1.updatedAt}
+        tableView.reloadData()
     }
     
     @IBAction func logout(_ sender: Any) {
         navBarFunctions.logout()
+        self.dismiss(animated: true, completion: nil)
     }
     
     
     @IBAction func refresh(_ sender: Any) {
         NetworkingManager.getStudentsLocations(completion: handleGetLocationsResponse(studentLocations:error:))
+        StudentLocations.data.sort(){$0.updatedAt > $1.updatedAt}
+        tableView.reloadData()
     }
     
     
@@ -47,8 +52,7 @@ class ListViewVC: UIViewController, UITableViewDelegate,  UITableViewDataSource 
             StudentLocations.data = studentLocations
         }
         else{
-            print("failed to get locations")
-            //TODO: implement error dialog saying can't get locations
+            displayAlert(title: "Failed To Get Locations", message: "Please refresh")
         }
         
     }
@@ -64,7 +68,6 @@ class ListViewVC: UIViewController, UITableViewDelegate,  UITableViewDataSource 
                 StudentLocations.data[indexPath.row].lastName
             cell.mediaLabel.text =  StudentLocations.data[indexPath.row].mediaURL
         return cell
-        //TODO: Sort cells by most recent update to oldest
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -74,7 +77,7 @@ class ListViewVC: UIViewController, UITableViewDelegate,  UITableViewDataSource 
                 app.openURL(url)
             }
             else{
-                //TODO: implement error dialog saying can't open URL
+                displayAlert(title: "Can't open URL", message: "Please choose a different pin")
             }
         }
     }

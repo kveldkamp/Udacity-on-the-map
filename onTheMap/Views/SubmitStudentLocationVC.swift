@@ -41,7 +41,6 @@ class SubmitStudentLocationVC: UIViewController, MKMapViewDelegate {
     
     @IBAction func PostStudentInfoButton(_ sender: Any) {
         NetworkingManager.getUserData(completion: handleGetUserInfo(success:error:))
-        //self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     
@@ -56,7 +55,6 @@ class SubmitStudentLocationVC: UIViewController, MKMapViewDelegate {
         let reuseId = "pin"
         
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
-        //TODO: make pin match
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = true
@@ -70,12 +68,31 @@ class SubmitStudentLocationVC: UIViewController, MKMapViewDelegate {
         return pinView
     }
     
+    func constructPostLocationRequest() -> PostLocationRequest{
+        let dictionary = ["firstName" : UserInfo.firstName, "lastName" : UserInfo.lastName, "longitude" : UserInfo.longitude, "latitude" : UserInfo.latitude, "mediaURL" : UserInfo.mediaURL, "mapString" : UserInfo.mapString, "uniqueKey" : UserInfo.uniqueKey] as [String : Any]
+        
+        let requestBody = PostLocationRequest(dictionary: dictionary)
+        return requestBody
+    }
+    
+    
+    
     func handleGetUserInfo(success: Bool, error: Error?){
         if success{
-            
+            let requestBody = constructPostLocationRequest()
+            NetworkingManager.postStudentLocation(requestBody: requestBody, completion: handlePostLocation(success:error:))
         }
         else{
             displayAlert(title: "Bad User Data", message: error?.localizedDescription)
+        }
+    }
+    
+    func handlePostLocation(success: Bool, error: Error?){
+        if success{
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        }
+        else{
+            displayAlert(title: "Unable to Post Location", message: "please exit this screen and try again")
         }
     }
     
