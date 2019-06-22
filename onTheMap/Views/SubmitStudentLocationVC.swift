@@ -22,8 +22,8 @@ class SubmitStudentLocationVC: UIViewController, MKMapViewDelegate {
     
     
     func configurePinOnMap(){
-        let lat = StudentInfo.latitude
-        let long = StudentInfo.longitude
+        let lat = UserInfo.latitude
+        let long = UserInfo.longitude
         let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
         
         let annotation = MKPointAnnotation()
@@ -40,16 +40,14 @@ class SubmitStudentLocationVC: UIViewController, MKMapViewDelegate {
     
     
     @IBAction func PostStudentInfoButton(_ sender: Any) {
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        NetworkingManager.getUserData(completion: handleGetUserInfo(success:error:))
+        //self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     
     @IBAction func dismissView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-    
     
     
     //MKMapViewDelegate methods
@@ -72,6 +70,13 @@ class SubmitStudentLocationVC: UIViewController, MKMapViewDelegate {
         return pinView
     }
     
-    
+    func handleGetUserInfo(success: Bool, error: Error?){
+        if success{
+            
+        }
+        else{
+            displayAlert(title: "Bad User Data", message: error?.localizedDescription)
+        }
+    }
     
 }

@@ -47,8 +47,8 @@ class InputStudentLocationVC: UIViewController, UITextFieldDelegate{
             displayAlert(title: "Media URL is Empty", message: "You must enter a Website")
         }else{
             location = locationQuery.text!
-            StudentInfo.mapString = locationQuery.text!
-            StudentInfo.mediaURL = mediaURLInput.text!
+            UserInfo.mapString = locationQuery.text!
+            UserInfo.mediaURL = mediaURLInput.text!
             geocodeLocation(location: location)
         }
     }
@@ -72,15 +72,11 @@ class InputStudentLocationVC: UIViewController, UITextFieldDelegate{
                 if let location = placemark.location {
                     let coordinate = location.coordinate
                     
-                    StudentInfo.latitude = coordinate.latitude
-                    StudentInfo.longitude = coordinate.longitude
-                    
-                    print("Latitude \(StudentInfo.latitude)")
-                    print("longitude \(StudentInfo.longitude)")
-                    
+                    UserInfo.latitude = coordinate.latitude
+                    UserInfo.longitude = coordinate.longitude
                     
                     if let locality = placemark.locality, let administrativeArea = placemark.administrativeArea{
-                         StudentInfo.mapString = ("\(locality),\(administrativeArea)")
+                         UserInfo.mapString = ("\(locality),\(administrativeArea)")
                     }
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "showSubmitStudentLocationVC", sender: self)

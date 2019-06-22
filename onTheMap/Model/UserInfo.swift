@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StudentInfo{
+class UserInfo{
     static var firstName = ""
     static var lastName = ""
     static var longitude = 181.0 //above upper limit for longitute, zero is valid
