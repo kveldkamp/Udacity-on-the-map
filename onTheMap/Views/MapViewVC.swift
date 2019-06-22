@@ -13,6 +13,7 @@ class MapViewVC: UIViewController, MKMapViewDelegate {
     
     
     let navBarFunctions = NavBarFunctions()
+    var annotations = [MKPointAnnotation]()
     
     
     override func viewDidLoad() {
@@ -28,11 +29,12 @@ class MapViewVC: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func refresh(_ sender: Any) {
+        mapView.removeAnnotations(annotations)
         NetworkingManager.getStudentsLocations(completion: handleGetLocationsResponse(studentLocations:error:))
     }
     
     @IBAction func addPin(_ sender: Any) {
-        navBarFunctions.addPin()
+        performSegue(withIdentifier: "showInputStudentInfoVC", sender: self)
     }
     
     
@@ -51,7 +53,7 @@ class MapViewVC: UIViewController, MKMapViewDelegate {
     
     
     func configurePinsOnMap(studentLocations: [StudentLocation]){
-        var annotations = [MKPointAnnotation]()
+        
         
         for student in studentLocations {
 

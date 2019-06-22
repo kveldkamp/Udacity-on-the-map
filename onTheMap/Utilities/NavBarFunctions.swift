@@ -10,17 +10,7 @@ import Foundation
 
 class NavBarFunctions{
     
-    
-    
     func logout(){
-        
-    }
-    
-    func refresh(){
-        
-    }
-    
-    func addPin(){
         
     }
 }

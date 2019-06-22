@@ -17,6 +17,8 @@
 		CD715FF422B2121A00F5B1AD /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD715FF322B2121A00F5B1AD /* SessionResponse.swift */; };
 		CD715FF622B212E000F5B1AD /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD715FF522B212E000F5B1AD /* Session.swift */; };
 		CD715FF922B2134600F5B1AD /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD715FF822B2134600F5B1AD /* Account.swift */; };
+		CD75F85222BDD042002FFA23 /* InputStudentLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD75F85122BDD042002FFA23 /* InputStudentLocationVC.swift */; };
+		CD75F85422BDD6B8002FFA23 /* SubmitStudentLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD75F85322BDD6B8002FFA23 /* SubmitStudentLocationVC.swift */; };
 		CDB5805722AF7E72002AA887 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB5805622AF7E72002AA887 /* AppDelegate.swift */; };
 		CDB5805922AF7E72002AA887 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB5805822AF7E72002AA887 /* LoginVC.swift */; };
 		CDB5805C22AF7E72002AA887 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDB5805A22AF7E72002AA887 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 		CD715FF322B2121A00F5B1AD /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
 		CD715FF522B212E000F5B1AD /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		CD715FF822B2134600F5B1AD /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		CD75F85122BDD042002FFA23 /* InputStudentLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputStudentLocationVC.swift; sourceTree = "<group>"; };
+		CD75F85322BDD6B8002FFA23 /* SubmitStudentLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitStudentLocationVC.swift; sourceTree = "<group>"; };
 		CDB5805322AF7E72002AA887 /* onTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB5805622AF7E72002AA887 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDB5805822AF7E72002AA887 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 				CDB5805822AF7E72002AA887 /* LoginVC.swift */,
 				CD0D3BCB22B6EE1E00FCB978 /* ListViewVC.swift */,
 				CD0D3BCD22B6EE4600FCB978 /* MapViewVC.swift */,
+				CD75F85122BDD042002FFA23 /* InputStudentLocationVC.swift */,
+				CD75F85322BDD6B8002FFA23 /* SubmitStudentLocationVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +206,7 @@
 				CD715FF622B212E000F5B1AD /* Session.swift in Sources */,
 				CD0D3BC822B6CE5800FCB978 /* SessionRequest.swift in Sources */,
 				CDB5805922AF7E72002AA887 /* LoginVC.swift in Sources */,
+				CD75F85222BDD042002FFA23 /* InputStudentLocationVC.swift in Sources */,
 				CD0D3BCC22B6EE1E00FCB978 /* ListViewVC.swift in Sources */,
 				CD0D3BCE22B6EE4600FCB978 /* MapViewVC.swift in Sources */,
 				CDB5805722AF7E72002AA887 /* AppDelegate.swift in Sources */,
@@ -209,6 +216,7 @@
 				CD715FF922B2134600F5B1AD /* Account.swift in Sources */,
 				CD1FCD8422BCACDD005DB077 /* NavBarFunctions.swift in Sources */,
 				CD0D3BD122B6F7AF00FCB978 /* StudentLocationResponse.swift in Sources */,
+				CD75F85422BDD6B8002FFA23 /* SubmitStudentLocationVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

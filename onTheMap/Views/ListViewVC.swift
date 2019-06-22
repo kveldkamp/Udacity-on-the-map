@@ -39,7 +39,7 @@ class ListViewVC: UIViewController, UITableViewDelegate,  UITableViewDataSource 
     
     
     @IBAction func addPin(_ sender: Any) {
-        navBarFunctions.addPin()
+         performSegue(withIdentifier: "showInputStudentInfoVC", sender: self)
     }
     
     func handleGetLocationsResponse(studentLocations: [StudentLocation], error: Error?){

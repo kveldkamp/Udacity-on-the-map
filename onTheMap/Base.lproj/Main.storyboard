@@ -195,11 +195,121 @@
                     <tabBarItem key="tabBarItem" title="" image="icon_listview-selected" id="ujb-zK-WMX" userLabel="List"/>
                     <connections>
                         <outlet property="tableView" destination="qmk-IO-hV6" id="i7C-EL-qLT"/>
+                        <segue destination="UlE-eY-JaW" kind="presentation" identifier="showInputStudentInfoVC" id="g0Z-DP-79z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdg-kp-8r5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1861.5999999999999" y="210.59113300492612"/>
+        </scene>
+        <!--Input Student LocationVC-->
+        <scene sceneID="gN3-fg-hD7">
+            <objects>
+                <viewController storyboardIdentifier="InputStudentLocationVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UlE-eY-JaW" customClass="InputStudentLocationVC" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ncw-ml-oim">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0O-IE-qGS" userLabel="Query Text Box">
+                                <rect key="frame" x="37.666666666666657" y="219" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="uFu-6D-D4g"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Media URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9uW-MM-wJB" userLabel="MediaURL Text Box">
+                                <rect key="frame" x="37.666666666666657" y="319" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="etr-r2-jR9"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4J-hb-e7E">
+                                <rect key="frame" x="37.666666666666657" y="494" width="300" height="75"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.087007291619999996" green="0.71922796960000002" blue="0.89889782669999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchLocation:" destination="UlE-eY-JaW" eventType="touchUpInside" id="g1F-Qs-2GH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.087007291619999996" green="0.71922796960000002" blue="0.89889782669999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="e0O-IE-qGS" firstAttribute="centerX" secondItem="AYa-sq-l89" secondAttribute="centerX" id="AS8-5V-M4e"/>
+                            <constraint firstItem="e0O-IE-qGS" firstAttribute="top" secondItem="AYa-sq-l89" secondAttribute="top" constant="175" id="OOS-Y8-wMr"/>
+                            <constraint firstItem="A4J-hb-e7E" firstAttribute="top" secondItem="9uW-MM-wJB" secondAttribute="bottom" constant="125" id="Puf-9b-d2D"/>
+                            <constraint firstItem="e0O-IE-qGS" firstAttribute="width" secondItem="ncw-ml-oim" secondAttribute="width" multiplier="0.8" id="Va4-DQ-oOd"/>
+                            <constraint firstItem="A4J-hb-e7E" firstAttribute="height" secondItem="9uW-MM-wJB" secondAttribute="height" multiplier="1.5" id="VhO-BV-B0c"/>
+                            <constraint firstItem="A4J-hb-e7E" firstAttribute="width" secondItem="9uW-MM-wJB" secondAttribute="width" id="aWz-Vr-4hg"/>
+                            <constraint firstItem="9uW-MM-wJB" firstAttribute="top" secondItem="e0O-IE-qGS" secondAttribute="bottom" constant="50" id="h4L-BY-1c8"/>
+                            <constraint firstItem="A4J-hb-e7E" firstAttribute="centerX" secondItem="AYa-sq-l89" secondAttribute="centerX" id="oau-1x-r6C"/>
+                            <constraint firstItem="9uW-MM-wJB" firstAttribute="width" secondItem="e0O-IE-qGS" secondAttribute="width" id="pgo-gS-ugN"/>
+                            <constraint firstItem="9uW-MM-wJB" firstAttribute="centerX" secondItem="AYa-sq-l89" secondAttribute="centerX" id="typ-fW-GCh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AYa-sq-l89"/>
+                    </view>
+                    <connections>
+                        <outlet property="locationQuery" destination="e0O-IE-qGS" id="cvR-PX-ner"/>
+                        <outlet property="mediaURLInput" destination="9uW-MM-wJB" id="hmP-6J-VF9"/>
+                        <segue destination="hdT-ty-AnN" kind="presentation" identifier="showSubmitStudentLocationVC" id="fWE-nI-bPC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GAJ-bE-bsZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2735" y="33"/>
+        </scene>
+        <!--Submit Student LocationVC-->
+        <scene sceneID="aE2-ER-bmz">
+            <objects>
+                <viewController storyboardIdentifier="SubmitStudentLocationVC" id="hdT-ty-AnN" customClass="SubmitStudentLocationVC" customModule="onTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ER8-LI-h83">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fAF-yG-K5z">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seu-Gg-6Lf" userLabel="Post Button">
+                                <rect key="frame" x="18.666666666666657" y="603" width="337.66666666666674" height="75"/>
+                                <color key="backgroundColor" red="0.087007291619999996" green="0.71922796960000002" blue="0.89889782669999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="iRS-yM-J0e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
+                                <state key="normal" title="Post">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="PostStudentInfoButton:" destination="hdT-ty-AnN" eventType="touchUpInside" id="B4Y-Vr-LMf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fAF-yG-K5z" firstAttribute="top" secondItem="wA7-yh-T2n" secondAttribute="top" id="8D8-xV-TCJ"/>
+                            <constraint firstItem="wA7-yh-T2n" firstAttribute="bottom" secondItem="seu-Gg-6Lf" secondAttribute="bottom" constant="100" id="Or7-hp-cNM"/>
+                            <constraint firstItem="fAF-yG-K5z" firstAttribute="leading" secondItem="wA7-yh-T2n" secondAttribute="leading" id="UDb-5N-GD9"/>
+                            <constraint firstItem="wA7-yh-T2n" firstAttribute="bottom" secondItem="fAF-yG-K5z" secondAttribute="bottom" id="VBf-H6-xr5"/>
+                            <constraint firstItem="wA7-yh-T2n" firstAttribute="trailing" secondItem="fAF-yG-K5z" secondAttribute="trailing" id="fUS-Bl-Kic"/>
+                            <constraint firstItem="seu-Gg-6Lf" firstAttribute="width" secondItem="fAF-yG-K5z" secondAttribute="width" multiplier="0.9" id="hmk-eW-zDm"/>
+                            <constraint firstItem="seu-Gg-6Lf" firstAttribute="centerX" secondItem="fAF-yG-K5z" secondAttribute="centerX" id="xqD-0z-REM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wA7-yh-T2n"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="fAF-yG-K5z" id="veF-bO-BjC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jOS-2N-jFk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3557" y="32"/>
         </scene>
         <!--Map-->
         <scene sceneID="LVq-5b-Vlk">
@@ -255,6 +365,7 @@
                     <tabBarItem key="tabBarItem" title="" image="icon_mapview-selected" id="0Td-Oi-Fqu" userLabel="Map"/>
                     <connections>
                         <outlet property="mapView" destination="daa-Es-khV" id="Upy-dG-eJ1"/>
+                        <segue destination="UlE-eY-JaW" kind="presentation" identifier="showInputStudentInfoVC" id="O1a-xw-cB7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cj2-E0-jzN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -288,4 +399,7 @@
         <image name="icon_refresh" width="24" height="24"/>
         <image name="icon_world" width="52" height="67"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="O1a-xw-cB7"/>
+    </inferredMetricsTieBreakers>
 </document>
