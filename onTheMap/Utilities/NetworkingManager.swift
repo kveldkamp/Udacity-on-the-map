@@ -20,9 +20,12 @@ class NetworkingManager{
     
     enum Endpoints {
         static let udacityBase = "https://onthemap-api.udacity.com/v1"
+        static let last100Query = "?limit=100&order=-updatedAt"
+        
         
         case session
         case studentLocation
+        case studentLocationSorted
         case userData
         
         var stringValue: String {
@@ -33,47 +36,57 @@ class NetworkingManager{
             case .studentLocation:
                 return Endpoints.udacityBase + "/StudentLocation"
                 
+            case .studentLocationSorted:
+                return Endpoints.udacityBase + "/StudentLocation" + Endpoints.last100Query
+                
             case .userData:
                 return Endpoints.udacityBase + "/users/"
                 
             }
-            
         }
-        
         var url: URL {
             return URL(string: stringValue)!
         }
     }
     
+    
     class func taskForGETRequest<ResponseType:Decodable>(url: URL, response: ResponseType.Type,stupid5CharacterDeleter: Bool, completion: @escaping (ResponseType?,Error?) -> Void){
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data else {
+            
+            if error != nil{
                 DispatchQueue.main.async {
                     completion(nil, error)
                 }
                 return
             }
-            
-            
-            var newData : Data
-            if stupid5CharacterDeleter{
-                let range = 5..<data.count
-                newData = data.subdata(in: range)
+            guard let httpStatusCode = (response as? HTTPURLResponse)?.statusCode else {
+                return
+            }
+            if httpStatusCode >= 200 && httpStatusCode < 300 {
+                if let data = data{
+                    var newData : Data
+                    if stupid5CharacterDeleter{
+                        let range = 5..<data.count
+                        newData = data.subdata(in: range)
+                    }
+                    else{
+                        newData = data
+                    }
+                    let decoder = JSONDecoder()
+                    do {
+                        let responseObject = try decoder.decode(ResponseType.self, from: newData)
+                        DispatchQueue.main.async {
+                            completion(responseObject, nil)
+                        }
+                    } catch {
+                        DispatchQueue.main.async {
+                            completion(nil, error)
+                        }
+                    }
+                }
             }
             else{
-                newData = data
-            }
-            
-            let decoder = JSONDecoder()
-            do {
-                let responseObject = try decoder.decode(ResponseType.self, from: newData)
-                DispatchQueue.main.async {
-                    completion(responseObject, nil)
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
+                completion(nil,error)
             }
         }
         task.resume()
@@ -87,39 +100,42 @@ class NetworkingManager{
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data else {
+            if error != nil {
                 DispatchQueue.main.async {
                     completion(nil, error)
                 }
                 return
             }
-            if let httpResponse = response as? HTTPURLResponse{
-                if httpResponse.statusCode != 200{
-                    completion(nil,error)
-                    return
-                }
+            guard let httpStatusCode = (response as? HTTPURLResponse)?.statusCode else {
+                return
             }
-            
-            //removing first 5 characters
-            var newData : Data
-            if stupid5CharacterDeleter{
-                let range = 5..<data.count
-                newData = data.subdata(in: range)
+            if httpStatusCode >= 200 && httpStatusCode < 300 {
+                if let data = data{
+                    //removing first 5 characters
+                    var newData : Data
+                    if stupid5CharacterDeleter{
+                        let range = 5..<data.count
+                        newData = data.subdata(in: range)
+                    }
+                    else{
+                        newData = data
+                    }
+                    
+                    
+                    //decoding
+                    let decoder = JSONDecoder()
+                    do {
+                        let responseObject = try decoder.decode(ResponseType.self, from: newData)
+                        DispatchQueue.main.async {
+                            completion(responseObject, nil)
+                        }
+                    } catch {
+                        print("error decoding response")
+                    }
+                }
             }
             else{
-                newData = data
-            }
-            
-            
-            //decoding
-            let decoder = JSONDecoder()
-            do {
-                let responseObject = try decoder.decode(ResponseType.self, from: newData)
-                DispatchQueue.main.async {
-                    completion(responseObject, nil)
-                }
-            } catch {
-                print("error decoding response")
+                completion(nil,error)
             }
         }
         task.resume()
@@ -145,7 +161,7 @@ class NetworkingManager{
     }
     
     class func getStudentsLocations(completion: @escaping ([StudentLocation], Error?) -> Void){
-       taskForGETRequest(url: Endpoints.studentLocation.url, response: StudentLocationResponse.self, stupid5CharacterDeleter: false){response, error in
+       taskForGETRequest(url: Endpoints.studentLocationSorted.url, response: StudentLocations.self, stupid5CharacterDeleter: false){response, error in
         if let response = response {
                 completion(response.results,nil)
         }
@@ -186,7 +202,7 @@ class NetworkingManager{
     }
     
     
-    class func logout(){
+    class func logout(completion: @escaping (Bool, Error?) -> Void){
         var request = URLRequest(url: Endpoints.session.url)
         request.httpMethod = "DELETE"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -199,16 +215,21 @@ class NetworkingManager{
             request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
         }
         
-        
-        
         let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            
+            if error != nil{
+            completion(false,error)
+            }
+                
+            else{
             SessionInfo.sessionId = ""
             SessionInfo.sessionExpiration = ""
             SessionInfo.accountKey = ""
             SessionInfo.accountIsRegistered = false
+            completion(true,nil)
+            }
         }
         task.resume()
-        
     }
     
     

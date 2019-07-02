@@ -25,8 +25,7 @@ class MapViewVC: UIViewController, MKMapViewDelegate {
     
     
     @IBAction func logout(_ sender: Any) {
-        navBarFunctions.logout()
-        self.dismiss(animated: true, completion: nil)
+        NetworkingManager.logout(completion: handleLogoutResponse(success:error:))
     }
     
     @IBAction func refresh(_ sender: Any) {
@@ -49,6 +48,21 @@ class MapViewVC: UIViewController, MKMapViewDelegate {
             displayAlert(title: "Failed to Get Locations", message: "Please try reloading")
         }
     
+    }
+    
+    func handleLogoutResponse(success: Bool, error: Error?){
+        if success {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+        }
+        else if error != nil{
+             displayAlert(title: "Logout Error", message: error?.localizedDescription)
+        }
+        else{
+             displayAlert(title: "Logout Error", message: "Something went wrong logging out")
+        }
     }
     
     

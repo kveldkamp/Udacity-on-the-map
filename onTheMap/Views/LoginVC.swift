@@ -54,12 +54,18 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     
     func handleLoginResponse(success: Bool, error: Error?){
-        if success{
-            performSegue(withIdentifier: "showMap", sender: self)
+        enableUI(true)
+        if error != nil{
+            displayAlert(title: "Login Failed", message: error?.localizedDescription)
+            return
         }
         else{
-            displayAlert(title: "Login Failed", message: "Please Try again with different username / password")
-            enableUI(true)
+            if success{
+                performSegue(withIdentifier: "showMap", sender: self)
+            }
+            else{
+                displayAlert(title: "Login Failed", message: "Something went wrong while Logging in")
+            }
         }
     }
     

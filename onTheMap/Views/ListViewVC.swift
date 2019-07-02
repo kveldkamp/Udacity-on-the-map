@@ -31,8 +31,7 @@ class ListViewVC: UIViewController, UITableViewDelegate,  UITableViewDataSource 
     }
     
     @IBAction func logout(_ sender: Any) {
-        navBarFunctions.logout()
-        self.dismiss(animated: true, completion: nil)
+        NetworkingManager.logout(completion: handleLogoutResponse(success:error:))
     }
     
     
@@ -54,7 +53,20 @@ class ListViewVC: UIViewController, UITableViewDelegate,  UITableViewDataSource 
         else{
             displayAlert(title: "Failed To Get Locations", message: "Please refresh")
         }
-        
+    }
+    
+    func handleLogoutResponse(success: Bool, error: Error?){
+        if success {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        else if error != nil{
+            displayAlert(title: "Logout Error", message: error?.localizedDescription)
+        }
+        else{
+            displayAlert(title: "Logout Error", message: "Something went wrong logging out")
+        }
     }
     
     //MARK: TableViewDataSource methods

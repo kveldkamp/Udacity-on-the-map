@@ -11,6 +11,6 @@ import Foundation
 class NavBarFunctions{
     
     func logout(){
-        NetworkingManager.logout()
+        //NetworkingManager.logout(completion: success:error:)
     }
 }

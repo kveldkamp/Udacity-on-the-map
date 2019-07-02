@@ -10,7 +10,6 @@
 		CD0D3BC822B6CE5800FCB978 /* SessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0D3BC722B6CE5800FCB978 /* SessionRequest.swift */; };
 		CD0D3BCC22B6EE1E00FCB978 /* ListViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0D3BCB22B6EE1E00FCB978 /* ListViewVC.swift */; };
 		CD0D3BCE22B6EE4600FCB978 /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0D3BCD22B6EE4600FCB978 /* MapViewVC.swift */; };
-		CD0D3BD122B6F7AF00FCB978 /* StudentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0D3BD022B6F7AF00FCB978 /* StudentLocationResponse.swift */; };
 		CD1FCD8422BCACDD005DB077 /* NavBarFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1FCD8322BCACDD005DB077 /* NavBarFunctions.swift */; };
 		CD1FCD8622BCBC2D005DB077 /* StudentLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1FCD8522BCBC2D005DB077 /* StudentLocations.swift */; };
 		CD22976222B09DFB00DD0B08 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD22976122B09DFB00DD0B08 /* NetworkingManager.swift */; };
@@ -35,7 +34,6 @@
 		CD0D3BC722B6CE5800FCB978 /* SessionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRequest.swift; sourceTree = "<group>"; };
 		CD0D3BCB22B6EE1E00FCB978 /* ListViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewVC.swift; sourceTree = "<group>"; };
 		CD0D3BCD22B6EE4600FCB978 /* MapViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
-		CD0D3BD022B6F7AF00FCB978 /* StudentLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationResponse.swift; sourceTree = "<group>"; };
 		CD1FCD8322BCACDD005DB077 /* NavBarFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarFunctions.swift; sourceTree = "<group>"; };
 		CD1FCD8522BCBC2D005DB077 /* StudentLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocations.swift; sourceTree = "<group>"; };
 		CD22976122B09DFB00DD0B08 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -74,7 +72,6 @@
 			children = (
 				CD715FF322B2121A00F5B1AD /* SessionResponse.swift */,
 				CD0D3BC722B6CE5800FCB978 /* SessionRequest.swift */,
-				CD0D3BD022B6F7AF00FCB978 /* StudentLocationResponse.swift */,
 				CD75F85922BEC80A002FFA23 /* UserDataResponse.swift */,
 				CD75F85B22BED571002FFA23 /* PostLocationResponse.swift */,
 				CD75F85D22BEDDC9002FFA23 /* PostLocationRequest.swift */,
@@ -232,7 +229,6 @@
 				CD715FF922B2134600F5B1AD /* Account.swift in Sources */,
 				CD75F85C22BED571002FFA23 /* PostLocationResponse.swift in Sources */,
 				CD1FCD8422BCACDD005DB077 /* NavBarFunctions.swift in Sources */,
-				CD0D3BD122B6F7AF00FCB978 /* StudentLocationResponse.swift in Sources */,
 				CD75F85622BE9F2D002FFA23 /* HelperMethods.swift in Sources */,
 				CD75F85A22BEC80A002FFA23 /* UserDataResponse.swift in Sources */,
 				CD75F85422BDD6B8002FFA23 /* SubmitStudentLocationVC.swift in Sources */,
